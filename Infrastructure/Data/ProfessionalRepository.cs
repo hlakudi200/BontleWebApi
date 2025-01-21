@@ -34,7 +34,7 @@ namespace Infrastructure
         public async Task<Professional> GetProfessionalByIdAsync(int id)
         {
             return await  _context.Professionals
-                //.Include(p=>p.User)
+                .Include(p=>p.User)
                 .FirstOrDefaultAsync(p=>p.ProfessionalId==id);
         }
 
