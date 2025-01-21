@@ -10,5 +10,9 @@ namespace core.Interfaces
     {
         Task<Professional> GetProfessionalByIdAsync(int Id);
         Task<IReadOnlyList<Professional>> GetProfessionalsAsync();
+
+        Task UpdateProfessionalAsync(Professional professional);
+        Task CreateProfessionalAsync(Professional professional);
+        Task  DeleteProfessionalAsync(Professional professional);
     }
 }

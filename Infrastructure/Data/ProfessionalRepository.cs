@@ -18,18 +18,37 @@ namespace Infrastructure
             _context=context;
         }
 
+        public async Task CreateProfessionalAsync(Professional professional)
+        {
+            await _context.Professionals.AddAsync(professional);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteProfessionalAsync(Professional professional)
+        {
+            _context.Professionals.Remove(professional);
+            await _context.SaveChangesAsync();
+            
+        }
+
         public async Task<Professional> GetProfessionalByIdAsync(int id)
         {
             return await  _context.Professionals
-                .Include(p=>p.User)
+                //.Include(p=>p.User)
                 .FirstOrDefaultAsync(p=>p.ProfessionalId==id);
         }
 
         public async Task<IReadOnlyList<Professional>> GetProfessionalsAsync()
         {   
             return await _context.Professionals
-                   .Include(p=>p.User)
+                   //.Include(p=>p.User)
                    .ToListAsync();
+        }
+
+        public async Task UpdateProfessionalAsync(Professional professional)
+        {
+            _context.Professionals.Update(professional);
+            await _context.SaveChangesAsync();
         }
     }
 }

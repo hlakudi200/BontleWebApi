@@ -17,10 +17,10 @@ namespace core.Models.Entity
         public DateTime CreatedAt { get; private set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; private set; } = DateTime.UtcNow;
         
-        public User User { get; set; }
-        public ICollection<Service> Services { get; set; }
-        public ICollection<Appointment> Appointments { get; set; }
-        public ICollection<Review> Reviews { get; set; }
-        public ICollection<Availability> Availabilities { get; set; }
+        public User ? User  { get; set; }
+        public ICollection<Service> ?Services { get; set; }
+        public ICollection<Appointment>? Appointments { get; set; }
+        public ICollection<Review> ?Reviews { get; set; }
+        public ICollection<Availability>? Availabilities { get; set; }
     }  
 }
